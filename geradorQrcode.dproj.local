@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/08/31 16:23:40.000.010,=C:\Users\DOUGLAS_ALFA\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/05/02 10:47:57.000.468,=C:\Users\DOUGLAS_ALFA\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/05/02 11:00:03.816,=C:\Users\DOUGLAS_ALFA\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/05/02 11:00:34.521,C:\Github\geradorQrcode\uPrincipal.dfm=C:\Users\DOUGLAS_ALFA\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2023/05/02 11:00:34.521,C:\Github\geradorQrcode\uPrincipal.pas=C:\Users\DOUGLAS_ALFA\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/05/02 11:00:39.113,C:\Github\geradorQrcode\geradorQrcode.dproj=C:\Users\DOUGLAS_ALFA\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
