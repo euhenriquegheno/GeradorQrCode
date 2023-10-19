@@ -54,4 +54,8 @@ object Form1: TForm1
     TabOrder = 1
     OnClick = btnSalvarQrCodeClick
   end
+  object SavePictureDialog1: TSavePictureDialog
+    Left = 120
+    Top = 144
+  end
 end

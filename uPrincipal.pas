@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, DelphiZXIngQRCode, Vcl.StdCtrls,
-  Vcl.ExtCtrls, Vcl.Imaging.pngimage;
+  Vcl.ExtCtrls, Vcl.Imaging.pngimage, Vcl.ExtDlgs;
 
 type
   TForm1 = class(TForm)
@@ -14,6 +14,7 @@ type
     PaintBox1: TPaintBox;
     btnSalvarQrCode: TButton;
     Image1: TImage;
+    SavePictureDialog1: TSavePictureDialog;
     procedure edtLinkChange(Sender: TObject);
     procedure btnSalvarQrCodeClick(Sender: TObject);
     procedure PaintBox1Paint(Sender: TObject);
@@ -36,12 +37,32 @@ procedure TForm1.btnSalvarQrCodeClick(Sender: TObject);
 var
   bmp: TBitmap;
   png: TPngImage;
+  caminhoSalvar: String;
 begin
-  Image1.Canvas.CopyRect(Image1.Canvas.ClipRect, PaintBox1.Canvas, PaintBox1.Canvas.ClipRect);
-  Image1.Picture.SaveToFile(ExtractFilePath(Application.ExeName) + 'qrCodeSalvo.png');
+  SavePictureDialog1.Title := 'Salvar Imagem';
+  SavePictureDialog1.Filter := 'Arquivos PNG|*.png';
+  SavePictureDialog1.DefaultExt := 'png';
+
+  SavePictureDialog1.FileName := 'qrCode.png';
+
+  if (SavePictureDialog1.Execute) then
+  begin
+    if not SameText(ExtractFileExt(SavePictureDialog1.FileName), '.png') then
+      SavePictureDialog1.FileName := ChangeFileExt(SavePictureDialog1.FileName, '.png');
+
+    caminhoSalvar := SavePictureDialog1.FileName;
+    Image1.Canvas.CopyRect(Image1.Canvas.ClipRect, PaintBox1.Canvas, PaintBox1.Canvas.ClipRect);
+
+    try
+      Image1.Picture.SaveToFile(caminhoSalvar);
+      showMessage('Arquivo salvo com sucesso!' + sLineBreak + 'Caminho do arquivo: ' + caminhoSalvar);
+    except
+      on e: exception do
+        showMessage('Não foi possivel salvar!' + sLineBreak + e.Message);
+    end;
+  end;
+
 end;
-
-
 
 procedure TForm1.edtLinkChange(Sender: TObject);
 var
